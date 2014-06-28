@@ -1,6 +1,9 @@
 Learningjapanese::Application.routes.draw do
-  resources :users
-  resources :sessions
+  resources :users  
+  get "/login", to: "sessions#new", :as => :login
+  post "/login", to: "sessions#create", :as => :signin
+  delete "/signout", to: "sessions#destroy", :as => "signout"
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 	root 'welcome#index'
